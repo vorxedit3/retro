@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Retro Blog - 1995</title>
+    <style>
+        /* 1995 CSS Styles */
+        body {
+            background-color: #008080;
+            color: #000000;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        #cursor {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #000000;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+        
+        #container {
+            width: 800px;
+            margin: 20px auto;
+            background-color: #c0c0c0;
+            border: 4px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 10px;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        
+        #header {
+            background-color: #000080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            margin-bottom: 20px;
+        }
+        
+        #nav {
+            background-color: #c0c0c0;
+            padding: 5px;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        #nav a {
+            color: #000080;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        #nav a:hover {
+            text-decoration: underline;
+        }
+        
+        #content {
+            display: flex;
+        }
+        
+        #main {
+            flex: 3;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            margin-right: 20px;
+        }
+        
+        #sidebar {
+            flex: 1;
+            padding: 10px;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+        }
+        
+        .post {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #000000;
+        }
+        
+        .post-title {
+            color: #000080;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .post-date {
+            color: #808080;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-title {
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-list li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-list a {
+            color: #000080;
+            text-decoration: none;
+        }
+        
+        .sidebar-list a:hover {
+            text-decoration: underline;
+        }
+        
+        #footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            font-size: 12px;
+        }
+        
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        marquee {
+            background-color: #000080;
+            color: white;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        
+        #arrow-keys {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #c0c0c0;
+            border: 3px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 10px;
+            display: grid;
+            grid-template-areas:
+                ". up ."
+                "left . right"
+                ". down .";
+            gap: 5px;
+        }
+        
+        .arrow-key {
+            width: 40px;
+            height: 40px;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .arrow-key:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+        }
+        
+        #up { grid-area: up; }
+        #left { grid-area: left; }
+        #right { grid-area: right; }
+        #down { grid-area: down; }
+        
+        #key-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #c0c0c0;
+            border: 3px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursor"></div>
+    <div id="key-indicator">Last key: None</div>
+    
+    <div id="container">
+        <div id="header">
+            WELCOME TO MY RETRO BLOG
+        </div>
+        
+        <marquee behavior="scroll" direction="left">Under Construction | Guestbook | Webrings | View My Geocities Page | Email Me | Best Viewed with Netscape Navigator</marquee>
+        
+        <div id="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Links</a>
+            <a href="#">Guestbook</a>
+            <a href="#">Webrings</a>
+            <a href="#">Email</a>
+        </div>
+        
+        <div id="content">
+            <div id="main">
+                <div class="post">
+                    <div class="post-title">MY FIRST BLOG POST</div>
+                    <div class="post-date">Monday, October 23, 1995</div>
+                    <div class="post-content">
+                        <p>Hello World Wide Web! This is my very first blog post on my brand new homepage. I'm so excited to be part of the internet revolution!</p>
+                        <p>Today I learned how to make blinking text. Here's an example: <span class="blink">LOOK AT ME BLINK!</span> Isn't that cool?</p>
+                        <p>Try using the arrow keys to move this page around! The keys are displayed in the bottom right corner.</p>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-title">KEYBOARD CONTROLS</div>
+                    <div class="post-date">Wednesday, October 25, 1995</div>
+                    <div class="post-content">
+                        <p>This page now supports keyboard navigation!</p>
+                        <ul>
+                            <li>← → : Move page left/right</li>
+                            <li>↑ ↓ : Move page up/down</li>
+                            <li>Space: Reset position</li>
+                        </ul>
+                        <p>The last key you pressed is displayed in the top right corner.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="sidebar">
+                <div class="sidebar-title">ABOUT ME</div>
+                <p>Hi! I'm a 90s web surfer creating my first homepage. I love HTML, keyboard controls, and the sound of dial-up modems.</p>
+                
+                <div class="sidebar-title">PAGE POSITION</div>
+                <div style="font-family: monospace; font-size: 16px; background: black; color: lime; padding: 5px; text-align: center;">
+                    X: <span id="pos-x">0</span><br>
+                    Y: <span id="pos-y">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer">
+            This page best viewed with Netscape Navigator at 800x600 resolution<br>
+            &copy; 1995 My Retro Blog - All Rights Reserved
+        </div>
+    </div>
+
+    <div id="arrow-keys">
+        <div id="up" class="arrow-key">↑</div>
+        <div id="left" class="arrow-key">←</div>
+        <div id="right" class="arrow-key">→</div>
+        <div id="down" class="arrow-key">↓</div>
+    </div>
+
+    <script>
+        // Laggy cursor effect
+        const cursor = document.getElementById('cursor');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        const speed = 0.2; // Lower is laggier
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateCursor() {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+            
+            cursorX += dx * speed;
+            cursorY += dy * speed;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        
+        animateCursor();
+        
+        // Blinking text for extra nostalgia
+        const blinkElements = document.querySelectorAll('.blink');
+        setInterval(() => {
+            blinkElements.forEach(el => {
+                el.style.visibility = el.style.visibility === 'hidden' ? 'visible' : 'hidden';
+            });
+        }, 500);
+        
+        // Keyboard controls
+        const container = document.getElementById('container');
+        const keyIndicator = document.getElementById('key-indicator');
+        const posX = document.getElementById('pos-x');
+        const posY = document.getElementById('pos-y');
+        
+        let pos = { x: 0, y: 0 };
+        const speedFactor = 10;
+        
+        function updatePosition() {
+            container.style.left = pos.x + 'px';
+            container.style.top = pos.y + 'px';
+            posX.textContent = pos.x;
+            posY.textContent = pos.y;
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            let keyName = '';
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    pos.x -= speedFactor;
+                    keyName = '←';
+                    document.getElementById('left').style.borderColor = '#808080 #ffffff #ffffff #808080';
+                    break;
+                case 'ArrowRight':
+                    pos.x += speedFactor;
+                    keyName = '→';
+                    document.getElementById('right').style.borderColor = '#808080 #ffffff #ffffff #808080';
+                    break;
+                case 'ArrowUp':
+                    pos.y -= speedFactor;
+                    keyName = '↑';
+                    document.getElementById('up').style.borderColor = '#808080 #ffffff #ffffff #808080';
+                    break;
+                case 'ArrowDown':
+                    pos.y += speedFactor;
+                    keyName = '↓';
+                    document.getElementById('down').style.borderColor = '#808080 #ffffff #ffffff #808080';
+                    break;
+                case ' ':
+                    pos = { x: 0, y: 0 };
+                    keyName = 'Space';
+                    break;
+                default:
+                    return;
+            }
+            
+            keyIndicator.textContent = `Last key: ${keyName}`;
+            updatePosition();
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    document.getElementById('left').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+                    break;
+                case 'ArrowRight':
+                    document.getElementById('right').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+                    break;
+                case 'ArrowUp':
+                    document.getElementById('up').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+                    break;
+                case 'ArrowDown':
+                    document.getElementById('down').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+                    break;
+            }
+        });
+        
+        // Make arrow keys clickable too
+        document.getElementById('up').addEventListener('mousedown', () => {
+            pos.y -= speedFactor;
+            keyIndicator.textContent = 'Last key: ↑';
+            updatePosition();
+            document.getElementById('up').style.borderColor = '#808080 #ffffff #ffffff #808080';
+        });
+        
+        document.getElementById('left').addEventListener('mousedown', () => {
+            pos.x -= speedFactor;
+            keyIndicator.textContent = 'Last key: ←';
+            updatePosition();
+            document.getElementById('left').style.borderColor = '#808080 #ffffff #ffffff #808080';
+        });
+        
+        document.getElementById('right').addEventListener('mousedown', () => {
+            pos.x += speedFactor;
+            keyIndicator.textContent = 'Last key: →';
+            updatePosition();
+            document.getElementById('right').style.borderColor = '#808080 #ffffff #ffffff #808080';
+        });
+        
+        document.getElementById('down').addEventListener('mousedown', () => {
+            pos.y += speedFactor;
+            keyIndicator.textContent = 'Last key: ↓';
+            updatePosition();
+            document.getElementById('down').style.borderColor = '#808080 #ffffff #ffffff #808080';
+        });
+        
+        document.getElementById('up').addEventListener('mouseup', () => {
+            document.getElementById('up').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+        });
+        
+        document.getElementById('left').addEventListener('mouseup', () => {
+            document.getElementById('left').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+        });
+        
+        document.getElementById('right').addEventListener('mouseup', () => {
+            document.getElementById('right').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+        });
+        
+        document.getElementById('down').addEventListener('mouseup', () => {
+            document.getElementById('down').style.borderColor = '#ffffff #808080 #808080 #ffffff';
+        });
+        
+        // Initialize position display
+        updatePosition();
+    </script>
+</body>
+</html>
